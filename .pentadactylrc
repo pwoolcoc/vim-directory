@@ -1,0 +1,5 @@
+set mapleader=","
+
+nnoremap <Leader>b :ba<CR>
+nnoremap <Leader>f :fo<CR>
+
