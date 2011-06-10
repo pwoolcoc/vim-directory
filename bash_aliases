@@ -14,3 +14,7 @@ alias gpu='git pull'
 alias gcl='git clone'
 alias gmr='git merge'
 
+if [ -f ~/.bash_aliases.local ]; then
+  . ~/.bash_aliases.local
+fi
+
