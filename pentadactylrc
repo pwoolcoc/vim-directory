@@ -1,5 +1,9 @@
 set mapleader=","
 
+command -nargs=* ddg tabopen duckduckgo.com/?q=<args>
+
 nnoremap <Leader>b :ba<CR>
 nnoremap <Leader>f :fo<CR>
+nnoremap <Leader>d :ddg
+
 

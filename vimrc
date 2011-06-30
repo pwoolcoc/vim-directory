@@ -26,6 +26,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 set laststatus=2
 
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+let NERDTreeShowHidden=1
 map <Leader>n :NERDTreeToggle<CR>
 
 map <Leader>t :!ctags --extra=+f -R *<CR><CR>

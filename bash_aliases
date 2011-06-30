@@ -14,6 +14,15 @@ alias gpu='git pull'
 alias gcl='git clone'
 alias gmr='git merge'
 
+alias svi='sudo vi'
+
+complete -o default -o nospace -F _git_log gl
+complete -o default -o nospace -F _git_push gp
+complete -o default -o nospace -F _git_diff gd
+complete -o default -o nospace -F _git_branch gb
+complete -o default -o nospace -F _git_checkout gc
+
+
 if [ -f ~/.bash_aliases.local ]; then
   . ~/.bash_aliases.local
 fi
