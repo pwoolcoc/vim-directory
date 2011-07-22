@@ -2,8 +2,9 @@ apt-get install python2.6
 apt-get install python2.6-dev
 apt-get install python3.2
 apt-get install python3.2-dev
-apt-get install python-virtualenv
 apt-get install virtualenvwrapper
+apt-get install ruby
+apt-get install rubygems
 apt-get install gnome-do
 apt-get install pidgin pidgin-sipe
 apt-get install tree
@@ -16,3 +17,4 @@ apt-get install smbfs
 apt-get install redis
 apt-get install shutter
 
+pip install virtualenv==1.6.1
