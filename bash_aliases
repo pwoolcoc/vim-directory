@@ -1,3 +1,5 @@
+alias rm='rm -i'
+
 alias ga='git add'
 alias gp='git push'
 alias gl='git log'
