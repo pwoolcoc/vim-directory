@@ -1,4 +1,5 @@
 alias rm='rm -i'
+alias hdrive='cd /mnt/hdrive'
 
 alias ga='git add'
 alias gp='git push'
