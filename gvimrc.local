@@ -4,5 +4,3 @@ let NERDTreeIgnore=["\.pyc$", "\.git$"]
 
 au VimEnter * NERDTree
 
-set colorcolumn=80
-

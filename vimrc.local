@@ -18,3 +18,4 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+set colorcolumn=80
