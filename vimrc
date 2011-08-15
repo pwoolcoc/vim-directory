@@ -55,6 +55,8 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 au BufRead,BufNewfile *.txt call s:setupWrapping()
 
+au BufRead,BufNewFile *.wsgi set ft=python
+
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
 set backspace=indent,eol,start
