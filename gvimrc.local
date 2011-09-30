@@ -1,6 +1,12 @@
+if has("gui_macvim")
+  map <D-/> <plug>NERDCommenterToggle<CR>
+  imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+endif
 
 let NERDChristmasTree=1
-let NERDTreeIgnore=["\.pyc$", "\.git$"]
+let NERDTreeIgnore=["\.DS_Store$", "\.pyc$", "\.git$"]
 
 au VimEnter * NERDTree
+
+set guifont=Consolas:h14
 
