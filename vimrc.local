@@ -4,10 +4,28 @@ let g:mapleader=","
 nnoremap ; :
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader><space> :noh<CR>
+nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>rnum :set relativenumber<CR>
+nnoremap <Leader>rrnum :set number<CR>
 
 inoremap jj <ESC>
+
+if mapcheck("``") != ""
+  iunmap ``
+endif
+
+if mapcheck("''") != ""
+  iunmap ''
+endif
+
+set nospell
+
+au BufNewFile,BufRead *.rs set filetype=rust
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -19,5 +37,5 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 set colorcolumn=80
-set scrolloff=10
+set scrolloff=3
 

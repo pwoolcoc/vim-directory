@@ -9,9 +9,9 @@ syntax on
 set encoding=utf-8
 
 set nowrap
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
@@ -24,10 +24,6 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 set laststatus=2
-
-let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
-let NERDTreeShowHidden=1
-map <Leader>n :NERDTreeToggle<CR>
 
 map <Leader>t :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
@@ -89,7 +85,6 @@ let g:gist_open_browser_after_post = 1
 set modeline
 set modelines=10
 
-color desert
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
