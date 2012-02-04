@@ -15,26 +15,12 @@ set visualbell
 
 set guioptions-=T
 
-colorscheme ir_black
-
 function StartTerm()
   execute 'ConqueTerm ' . $SHELL . ' --login'
   setlocal listchars=tab:\ \ 
 endfunction
 
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-autocmd FocusGained * call s:UpdateNERDTree()
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-
-function s:CloseIfOnlyNerdTreeLeft()
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
-      endif
-    endif
-  endif
-endfunction
 
 function s:CdIfDirectory(directory)
   let explicitDirectory = isdirectory(a:directory)
@@ -49,32 +35,12 @@ function s:CdIfDirectory(directory)
   endif
 
   if directory
-    NERDTree
     wincmd p
     bd
   endif
 
   if explicitDirectory
     wincmd p
-  endif
-endfunction
-
-function s:UpdateNERDTree(...)
-  let stay = 0
-
-  if(exists("a:1"))
-    let stay = a:1
-  endif
-
-  if exists("t:NERDTreeBufName")
-    let nr = bufwinnr(t:NERDTreeBufName)
-    if nr != -1
-      exe nr . "wincmd w"
-      exe substitute(mapcheck("R"), "<CR>", "", "")
-      if !stay
-        wincmd p
-      end
-    endif
   endif
 endfunction
 
@@ -101,8 +67,6 @@ function ChangeDirectory(dir, ...)
   execute "cd " . fnameescape(a:dir)
   let stay = exists("a:1") ? a:1 : 1
 
-  NERDTree
-
   if !stay
     wincmd p
   endif
@@ -110,7 +74,6 @@ endfunction
 
 function Touch(file)
   execute "!touch " . shellescape(a:file, 1)
-  call s:UpdateNERDTree()
 endfunction
 
 function Remove(file)
@@ -122,19 +85,13 @@ function Remove(file)
   else
     execute "!rm " . shellescape(a:file, 1)
   endif
-
-  call s:UpdateNERDTree()
 endfunction
 
 function Mkdir(file)
   execute "!mkdir " . shellescape(a:file, 1)
-  call s:UpdateNERDTree()
 endfunction
 
 function Edit(file)
-  if exists("b:NERDTreeRoot")
-    wincmd p
-  endif
 
   execute "e " . fnameescape(a:file)
 

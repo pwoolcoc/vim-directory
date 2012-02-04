@@ -1,12 +1,20 @@
 if has("gui_macvim")
   map <D-/> <plug>NERDCommenterToggle<CR>
   imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+  map <D-c> :ConqueTermSplit bash<CR>
+  imap <D-c> <Esc>:ConqueTermSplit bash<CR>
+  map <SwipeLeft> :bp<CR>
+  map <SwipeRight> :bn<CR>
 endif
 
-let NERDChristmasTree=1
-let NERDTreeIgnore=["\.DS_Store$", "\.pyc$", "\.git$"]
+set guifont=Menlo:h14
 
-au VimEnter * NERDTree
+colorscheme desert
 
-set guifont=Consolas:h14
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn,tex} set spell
+
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
+
+map <Leader>f :CommandTFlush<CR>\|:CommandT<CR>
+map <Leader>F :CommandTFlush<CR>\|:CommandT %%<CR>
 
