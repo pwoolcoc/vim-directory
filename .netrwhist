@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/pwoolcoc/projects/graph'
 let g:netrw_dirhist_2='/home/pwoolcoc/projects/umf/account_store'
 let g:netrw_dirhist_3='/home/pwoolcoc/projects/umf/softwarestore'
+let g:netrw_dirhist_4='/Users/pwoolcoc/Projects/UniversityProjects/acalog'
+let g:netrw_dirhist_5='/Users/pwoolcoc/Developer/SDL'
+let g:netrw_dirhist_6='/Users/pwoolcoc/Developer/ChangeControl'
+let g:netrw_dirhist_7='/Users/pwoolcoc/Projects/UniversityProjects/Django/careerfairs'
