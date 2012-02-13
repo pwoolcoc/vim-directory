@@ -8,8 +8,8 @@ nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>q :bd<CR>
-nnoremap <Leader>rnum :set relativenumber<CR>
-nnoremap <Leader>rrnum :set number<CR>
+nnoremap <Leader>r :set relativenumber<CR>
+nnoremap <Leader>rr :set number<CR>
 
 inoremap jj <ESC>
 

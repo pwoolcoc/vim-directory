@@ -1,4 +1,5 @@
 set mapleader=","
+set defsearch=duckduckgo-ssl
 
 command -nargs=* ddg tabopen duckduckgo.com/?q=<args>
 
