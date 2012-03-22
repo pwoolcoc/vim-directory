@@ -17,11 +17,16 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="/sbin:$HOME/bin:$PATH"
+if [ -d "$HOME/.bin" ] ; then
+    PATH="/sbin:$HOME/.bin:$PATH"
 fi
 
 #####
 
+alias factor="/usr/local/share/factor/factor"
+
+WORKON_HOME=$HOME/.Envs
+
+source /usr/local/bin/virtualenvwrapper.sh
 
 
