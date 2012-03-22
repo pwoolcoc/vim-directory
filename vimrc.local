@@ -13,13 +13,8 @@ nnoremap <Leader>rr :set number<CR>
 
 inoremap jj <ESC>
 
-if mapcheck("``") != ""
-  iunmap ``
-endif
-
-if mapcheck("''") != ""
-  iunmap ''
-endif
+unmap! ``
+unmap! ''
 
 set nospell
 
