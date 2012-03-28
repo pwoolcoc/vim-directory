@@ -13,12 +13,11 @@ nnoremap <Leader>rr :set number<CR>
 
 inoremap jj <ESC>
 
-if mapcheck("``") != ""
-  iunmap ``
-endif
+silent! unmap! ``
+silent! unmap! ''
 
-if mapcheck("''") != ""
-  iunmap ''
+if &term =~ "^xterm"
+    let &t_SI .= "\<Esc>[4 q]"
 endif
 
 set nospell
@@ -28,15 +27,6 @@ set wildignore+=*.pyc
 au BufNewFile,BufRead *.rs set filetype=rust
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
-
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 set colorcolumn=80
 set scrolloff=3
