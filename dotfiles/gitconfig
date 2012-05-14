@@ -1,0 +1,8 @@
+[user]
+	name = Paul Woolcock
+	email = pwoolcoc@umflint.edu
+[push]
+    default = upstream
+
+[core]
+	editor = /usr/bin/vim

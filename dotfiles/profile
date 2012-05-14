@@ -1,0 +1,77 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.bin" ] ; then
+    PATH="/sbin:$HOME/.bin:/usr/local/bin:$PATH"
+fi
+
+#####
+
+alias factor="/usr/local/share/factor/factor"
+
+WORKON_HOME=$HOME/.Envs
+
+source /usr/local/bin/virtualenvwrapper.sh
+alias sed='gsed'
+
+EDITOR=/usr/local/bin/mvim
+
+if [[ $TERM == "screen" ]]; then
+    _GET_PATH='echo $PWD | sed "s#^/Users/#~#;s#^~$USER#~#"'
+
+    TAB_TITLE_PREFIX='"`'$_GET_PATH' | sed "s:..*/::"`$PROMPT_CHAR"'
+
+    TAB_TITLE_PROMPT='$SHELL:t'
+
+    TAB_TITLE_EXEC='$cmd[1]:t'
+
+    TAB_HARDSTATUS_PREFIX='"[`'$_GET_PATH'`] "'
+
+    TAB_HARDSTATUS_PROMPT='$SHELL:t'
+
+    TAB_HARDSTATUS_EXEC='$cmd'
+
+    function screen_set()
+    {
+        print -nR $'\033k'$1$'\033'\\\
+
+        print -nR $'\033]0;'$2$'\a'
+    }
+
+    function preexec()
+    {
+        local -a cmd; cmd=(${(z)1})
+        eval "tab_title=$TAB_TITLE_PREFIX$TAB_TITLE_EXEC"
+        eval "tab_hardstatus=$TAB_HARDSTATUS_PREFIX$TAB_HARDSTATUS_EXEC"
+        screen_set $tab_title $tab_hardstatus
+    }
+
+    function precmd()
+    {
+        eval "tab_title=$TAB_TITLE_PREFIX$TAB_TITLE_PREFIX"
+        eval "tab_hardstatus=$TAB_HARDSTATUS_PREFIX$TAB_HARDSTATUS_PREFIX"
+        screen_set $tab_title $tab_hardstatus
+    }
+fi
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
+export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
+export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
+

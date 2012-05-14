@@ -1,0 +1,6 @@
+shell -${SHELL}
+startup_message off
+hardstatus off
+caption always "%?%F%{= Kk}%:%{=u kR}%?  %h %-024=%{+b} %C%a %D %d %M %Y%{= dd}"
+hardstatus alwayslastline "%{= kR} %-Lw%{= Kk} %n%f %t %{-}%+Lw %=%{= dd}"
+
