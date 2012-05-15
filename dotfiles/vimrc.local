@@ -13,13 +13,8 @@ nnoremap <Leader>rr :set number<CR>
 
 inoremap jj <ESC>
 
-silent! unmap! ``
-silent! unmap! ''
-
-if &term =~ '^xterm'
-    let &t_SI .= "\<Esc>[4 q"
-    let &t_EI .= "\<Esc>[2 q"
-endif
+unmap! ``
+unmap! ''
 
 set nospell
 

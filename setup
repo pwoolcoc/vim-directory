@@ -1,42 +1,13 @@
-#!/usr/bin/env python
+#!/bin/sh
 
-import os
-import subprocess
-import sys
-try:
-    import argparse
-    ARGPARSE = True
-except ImportError:
-    import optparse
-    ARGPARSE = False
+FILES=dotfiles/*
+PWD_=$(pwd)
 
-class dotfiles(object):
-    EXCLUDE = (u".git", u".gitignore", u"link", u"README")
-    def _files(self, path):
-        listdir = (os.path.basename(a) for a in os.listdir(path))
-        for file_ in listdir:
-            if file_ not in self.EXCLUDE:
-                yield file_
-
-    def make_links(self, from_, to):
-        to = os.path.expanduser(to)
-        for f in self._files(from_):
-            if not f.startswith(u"."):
-                f = u".{f}".format(f=f)
-            link_name = os.path.join(to, f)
-            print link_name
-            #rtn = os.symlink(f, link_name)
-
-class OhMyZsh(object):
-    def download(self):
-        pass
-    def install(self):
-        pass
-
-if __name__ == "__main__":
-    dir_ = unicode(sys.argv[1]) if len(sys.argv) > 1 else u"."
-    make_links(dir_, u"~")
-
-
+for file in ${FILES}; do
+	NEW_FNAME=.$(basename $file)
+	NEW_PATH=${HOME}/${NEW_FNAME}
+	OLD_PATH=$PWD_/$file
+	$(ln -s $OLD_PATH $NEW_PATH)
+done
 
 

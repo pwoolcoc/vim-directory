@@ -4,7 +4,7 @@ if has("gui_macvim")
   map <D-c> :ConqueTermSplit bash<CR>
   imap <D-c> <Esc>:ConqueTermSplit bash<CR>
   map <SwipeLeft> :bp<CR>
-  map <SwipeRight> :bn<CR>
+  imap <SwipeRight> :bn<CR>
 endif
 
 set guifont=Menlo:h14
@@ -14,4 +14,5 @@ colorscheme desert
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn,tex} set spell
 
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
+
 
