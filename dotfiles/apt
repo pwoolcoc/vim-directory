@@ -1,0 +1,16 @@
+build-essential
+linux-headers-`uname -r`
+python-pip
+python-dev
+python3
+python3-dev
+git
+mercurial
+zsh
+screen
+irssi
+vim-gnome
+ruby
+ruby-dev
+rubygems
+
