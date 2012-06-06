@@ -1,9 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/pwoolcoc/projects/graph'
-let g:netrw_dirhist_2='/home/pwoolcoc/projects/umf/account_store'
-let g:netrw_dirhist_3='/home/pwoolcoc/projects/umf/softwarestore'
-let g:netrw_dirhist_4='/Users/pwoolcoc/Projects/UniversityProjects/acalog'
-let g:netrw_dirhist_5='/Users/pwoolcoc/Developer/SDL'
-let g:netrw_dirhist_6='/Users/pwoolcoc/Developer/ChangeControl'
-let g:netrw_dirhist_7='/Users/pwoolcoc/Projects/UniversityProjects/Django/careerfairs'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/pwoolcoc/Developer/beats/lib'
+let g:netrw_dirhist_2='/Users/pwoolcoc/Developer/beats'
+let g:netrw_dirhist_3='/Users/pwoolcoc/Developer'
+let g:netrw_dirhist_4='/Users/pwoolcoc/Documents/Resume'
+let g:netrw_dirhist_5='/Users/pwoolcoc/Developer/rust-levenshtein'
+let g:netrw_dirhist_6='/Users/pwoolcoc/Developer/modern-perl'
