@@ -1,10 +1,11 @@
 #!/bin/sh
 
-FILES=dotfiles/*
+FILES=dotfiles/*.symlink
 PWD_=$(pwd)
 
 for file in ${FILES}; do
-	NEW_FNAME=.$(basename $file)
+	BASENAME=.$(basename $file)
+    NEW_FNAME=${BASENAME%.*}
 	NEW_PATH=${HOME}/${NEW_FNAME}
 	OLD_PATH=$PWD_/$file
 	$(ln -s $OLD_PATH $NEW_PATH)
