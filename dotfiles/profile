@@ -23,14 +23,29 @@ fi
 
 #####
 
-alias factor="/usr/local/share/factor/factor"
+if [ -f "/usr/local/share/factor/factor" ] ; then
+    alias factor="/usr/local/share/factor/factor"
+fi
 
-WORKON_HOME=$HOME/.Envs
+if [ -d "$HOME/.Envs" ] ; then
+    WORKON_HOME=$HOME/.Envs
+fi
 
-source /usr/local/bin/virtualenvwrapper.sh
-alias sed='gsed'
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" ] ; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
-EDITOR=/usr/local/bin/mvim
+if [ -f "/usr/bin/vim" ] ; then
+    EDITOR=/usr/bin/vim
+fi
+
+if [ -f "/usr/local/bin/mvim" ] ; then
+    EDITOR=/usr/local/bin/mvim
+fi
+
+if [ -f "/usr/bin/gvim" ] ; then
+    EDITOR=/urs/bin/gvim
+fi
 
 if [[ $TERM == "screen" ]]; then
     _GET_PATH='echo $PWD | sed "s#^/Users/#~#;s#^~$USER#~#"'
@@ -70,8 +85,13 @@ if [[ $TERM == "screen" ]]; then
     }
 fi
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
-export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
-export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
+if [ -f "/usr/libexec/java_home" ] ; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
+
+if [ -d "$HOME/.ec2" ] ; then
+    export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
+    export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
+    export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
+fi
 
