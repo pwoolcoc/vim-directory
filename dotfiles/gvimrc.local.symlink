@@ -5,9 +5,8 @@ if has("gui_macvim")
   imap <D-c> <Esc>:ConqueTermSplit bash<CR>
   map <SwipeLeft> :bp<CR>
   imap <SwipeRight> :bn<CR>
+  set guifont=Menlo:h14
 endif
-
-set guifont=Menlo:h14
 
 colorscheme desert
 
