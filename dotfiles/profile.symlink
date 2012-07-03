@@ -27,8 +27,8 @@ if [ -f "/usr/local/share/factor/factor" ] ; then
     alias factor="/usr/local/share/factor/factor"
 fi
 
-if [ -d "$HOME/.Envs" ] ; then
-    WORKON_HOME=$HOME/.Envs
+if [ -d "$HOME/.virtualenvs" ] ; then
+    WORKON_HOME=$HOME/.virtualenvs
 fi
 
 if [ -f "/usr/local/bin/virtualenvwrapper.sh" ] ; then
@@ -47,43 +47,43 @@ if [ -f "/usr/bin/gvim" ] ; then
     EDITOR=/urs/bin/gvim
 fi
 
-if [[ $TERM == "screen" ]]; then
-    _GET_PATH='echo $PWD | sed "s#^/Users/#~#;s#^~$USER#~#"'
-
-    TAB_TITLE_PREFIX='"`'$_GET_PATH' | sed "s:..*/::"`$PROMPT_CHAR"'
-
-    TAB_TITLE_PROMPT='$SHELL:t'
-
-    TAB_TITLE_EXEC='$cmd[1]:t'
-
-    TAB_HARDSTATUS_PREFIX='"[`'$_GET_PATH'`] "'
-
-    TAB_HARDSTATUS_PROMPT='$SHELL:t'
-
-    TAB_HARDSTATUS_EXEC='$cmd'
-
-    function screen_set()
-    {
-        print -nR $'\033k'$1$'\033'\\\
-
-        print -nR $'\033]0;'$2$'\a'
-    }
-
-    function preexec()
-    {
-        local -a cmd; cmd=(${(z)1})
-        eval "tab_title=$TAB_TITLE_PREFIX$TAB_TITLE_EXEC"
-        eval "tab_hardstatus=$TAB_HARDSTATUS_PREFIX$TAB_HARDSTATUS_EXEC"
-        screen_set $tab_title $tab_hardstatus
-    }
-
-    function precmd()
-    {
-        eval "tab_title=$TAB_TITLE_PREFIX$TAB_TITLE_PREFIX"
-        eval "tab_hardstatus=$TAB_HARDSTATUS_PREFIX$TAB_HARDSTATUS_PREFIX"
-        screen_set $tab_title $tab_hardstatus
-    }
-fi
+#if [[ $TERM == "screen" ]]; then
+#    _GET_PATH='echo $PWD | sed "s#^/Users/#~#;s#^~$USER#~#"'
+#
+#    TAB_TITLE_PREFIX='"`'$_GET_PATH' | sed "s:..*/::"`$PROMPT_CHAR"'
+#
+#    TAB_TITLE_PROMPT='$SHELL:t'
+#
+#    TAB_TITLE_EXEC='$cmd[1]:t'
+#
+#    TAB_HARDSTATUS_PREFIX='"[`'$_GET_PATH'`] "'
+#
+#    TAB_HARDSTATUS_PROMPT='$SHELL:t'
+#
+#    TAB_HARDSTATUS_EXEC='$cmd'
+#
+#    function screen_set()
+#    {
+#        print -nR $'\033k'$1$'\033'\\\
+#
+#        print -nR $'\033]0;'$2$'\a'
+#    }
+#
+#    function preexec()
+#    {
+#        local -a cmd; cmd=(${(z)1})
+#        eval "tab_title=$TAB_TITLE_PREFIX$TAB_TITLE_EXEC"
+#        eval "tab_hardstatus=$TAB_HARDSTATUS_PREFIX$TAB_HARDSTATUS_EXEC"
+#        screen_set $tab_title $tab_hardstatus
+#    }
+#
+#    function precmd()
+#    {
+#        eval "tab_title=$TAB_TITLE_PREFIX$TAB_TITLE_PREFIX"
+#        eval "tab_hardstatus=$TAB_HARDSTATUS_PREFIX$TAB_HARDSTATUS_PREFIX"
+#        screen_set $tab_title $tab_hardstatus
+#    }
+#fi
 
 if [ -f "/usr/libexec/java_home" ] ; then
     export JAVA_HOME="$(/usr/libexec/java_home)"

@@ -29,6 +29,3 @@ au BufNewFile,BufRead *.rs set filetype=rust
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
 
-set colorcolumn=80
-set scrolloff=3
-
