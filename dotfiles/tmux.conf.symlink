@@ -13,3 +13,5 @@ set -g prefix C-a
 
 set -g default-terminal "screen"
 
+set -g base-index 1
+

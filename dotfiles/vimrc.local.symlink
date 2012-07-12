@@ -9,7 +9,7 @@ nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>p :bp<CR>
 nnoremap <Leader>q :bd<CR>
 nnoremap <Leader>r :set relativenumber<CR>
-nnoremap <Leader>rr :set number<CR>
+nnoremap <Leader>l :set number<CR>
 
 inoremap jj <ESC>
 

@@ -8,6 +8,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+PATH="/sbin:/usr/local/bin:$PATH"
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -18,7 +20,7 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.bin" ] ; then
-    PATH="/sbin:$HOME/.bin:/usr/local/bin:$PATH"
+    PATH="$HOME/.bin:$PATH"
 fi
 
 #####
@@ -93,5 +95,13 @@ if [ -d "$HOME/.ec2" ] ; then
     export EC2_PRIVATE_KEY="$(/bin/ls $HOME/.ec2/pk-*.pem)"
     export EC2_CERT="$(/bin/ls $HOME/.ec2/cert-*.pem)"
     export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.5/jars"
+fi
+
+if [ -f "$HOME/.mcabber/barracuda-mcabberrc" ] ; then
+    alias bnmcabber="mcabber -f $HOME/.mcabber/barracuda-mcabberrc"
+fi
+
+if [ -f "$HOME/.profile.local" ] ; then
+    . $HOME/.profile.local
 fi
 
