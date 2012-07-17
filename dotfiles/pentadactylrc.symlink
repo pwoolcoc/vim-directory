@@ -1,11 +1,9 @@
 set mapleader=","
 
-set defsearch=google
-
 nnoremap <Leader>b :ba<CR>
 nnoremap <Leader>f :fo<CR>
 nnoremap <Leader>d :ddg
 nnoremap <Leader>p :pintab<CR>
-nnoremap <Leader>up :unpintab<CR>
+nnoremap <Leader>u :unpintab<CR>
 
 
