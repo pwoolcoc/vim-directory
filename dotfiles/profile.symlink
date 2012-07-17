@@ -101,6 +101,10 @@ if [ -f "$HOME/.mcabber/barracuda-mcabberrc" ] ; then
     alias bnmcabber="mcabber -f $HOME/.mcabber/barracuda-mcabberrc"
 fi
 
+if [ -f "$HOME/.mcabber/mcabberrc" ] ; then
+    alias gtalk="mcabber -f $HOME/.mcabber/mcabberrc"
+fi
+
 if [ -f "$HOME/.profile.local" ] ; then
     . $HOME/.profile.local
 fi
