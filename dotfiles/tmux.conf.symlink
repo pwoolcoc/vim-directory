@@ -15,3 +15,5 @@ set -g default-terminal "screen"
 
 set -g base-index 1
 
+set -s escape-time 0
+
