@@ -1,9 +1,9 @@
-set mapleader=","
+map , <Leader>
 
-nnoremap <Leader>b :ba<CR>
-nnoremap <Leader>f :fo<CR>
-nnoremap <Leader>d :ddg
-nnoremap <Leader>p :pintab<CR>
-nnoremap <Leader>u :unpintab<CR>
+nmap -builtin <Leader>b :ba<CR>
+nmap -builtin <Leader>f :fo<CR>
+nmap -builtin <Leader>d :ddg
+nmap -builtin <Leader>p :pintab<CR>
+nmap -builtin <Leader>u :unpintab<CR>
 
 
