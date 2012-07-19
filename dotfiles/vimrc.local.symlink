@@ -28,4 +28,5 @@ set wildignore+=*.pyc
 au BufNewFile,BufRead *.rs set filetype=rust
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} set spell
 
