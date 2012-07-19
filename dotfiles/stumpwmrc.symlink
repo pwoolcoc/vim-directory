@@ -75,11 +75,11 @@
 (setf *mode-line-foreground-color* *foreground-color*)
 (setf *mode-line-background-color* *mode-line-bg-color*)
 (setf *mode-line-border-color* *border-color*)
-(setf *mode-line-border-width* 1)
-(setf *mode-line-pad-x* 1)
-(setf *mode-line-pad-y* 1)
+(setf *mode-line-border-width* 0)
+(setf *mode-line-pad-x* 0)
+(setf *mode-line-pad-y* 0)
 (setf *mode-line-position* :top)
-(setf *mode-line-timeout* 10)
+(setf *mode-line-timeout* 5)
 (setf *screen-mode-line-format*
       (list '(:eval (run-shell-command "date '+%I:%M %p %a %F'|tr -d [:cntrl:]" t)) " | %c | %l | [^B%n^b] %W (^[^B^1*%N^b^])"))
 
