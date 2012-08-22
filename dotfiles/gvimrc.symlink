@@ -11,7 +11,7 @@ if has("gui_running")
   imap <Leader>= <Esc> <C-w>=
 endif
 
-set visualbell
+set visualbell t_vb=''
 
 set guioptions-=T
 
