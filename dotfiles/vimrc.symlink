@@ -1,3 +1,27 @@
+"
+" Cool VIM stuff:
+"
+" Double-space a file:
+"
+"   :g/^/put _              ; _ is the '/dev/null' register
+"
+" Copy lines with one pattern, then append lines with another pattern:
+"
+"   Q                       ; takes you into Ex mode
+"   :g/^foo/y A
+"   :g/^bar/y A
+"   :let @+ = @a
+"
+" Copy entire buffer:
+"
+"   :%y+
+"
+" Paste from the stack of last-deleted lines
+"
+"   "1P                     ; repeatable with ., and repeating actually
+"                           ; does "2P, "3P, etc
+"
+
 call pathogen#infect()
 
 set nocompatible
