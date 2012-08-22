@@ -5,5 +5,11 @@ nmap -builtin <Leader>f :fo<CR>
 nmap -builtin <Leader>d :ddg
 nmap -builtin <Leader>p :pintab<CR>
 nmap -builtin <Leader>u :unpintab<CR>
+nmap -builtin <Leader>n gt
+nmap -builtin <Leader>N gT
+nmap -builtin <Esc> :stop<CR>
 
+set passkeys+=mail.google.com:/npoexs+-!raf<Esc>#lvcjk<CR>,gi
+
+set go+=T
 
