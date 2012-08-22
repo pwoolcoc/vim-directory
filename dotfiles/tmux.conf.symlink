@@ -17,3 +17,7 @@ set -g base-index 1
 
 set -s escape-time 0
 
+bind-key a send-prefix
+
+set -g status-position top
+
