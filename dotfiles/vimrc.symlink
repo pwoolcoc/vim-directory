@@ -49,6 +49,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 set laststatus=2
 
+
 map <Leader>t :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
@@ -63,21 +64,23 @@ function s:setupWrapping()
   set textwidth=72
 endfunction
 
-function s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Hammer<CR>
+function s:setupPython()
+  set softtabstop=4
+  set tabstop=4
+  set shiftwidth=4
+  set textwidth=79
 endfunction
 
 au FileType make set noexpandtab
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupWrapping()
 
-au BufNewFile,BufRead *.json set ft=javascript
+au BufRead,BufNewFile *.json set ft=javascript
 
 au BufRead,BufNewfile *.txt call s:setupWrapping()
 
 au BufRead,BufNewFile *.wsgi set ft=python
 
-au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+au FileType python call s:setupPython()
 
 set backspace=indent,eol,start
 
@@ -103,17 +106,58 @@ if has("mac")
 elseif has("unix")
   let g:gist_clip_command = 'xclip -selection clipboard'
 endif
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
 
 set modeline
 set modelines=10
-
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
 set showcmd
+
+let mapleader=","
+let g:mapleader=","
+
+nnoremap ; :
+nnoremap <Leader>w :w!<CR>
+nnoremap <Leader><space> :noh<CR>
+nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>q :bd<CR>
+
+nnoremap [n :set number<CR>
+nnoremap ]n :set relativenumber<CR>
+
+nmap <Left> <<
+nmap <Right> >>
+vmap <Left> <gv
+vmap <Right> >gv
+
+inoremap jj <ESC>
+
+if hasmapto('“')
+    unmap! ``
+endif
+
+if hasmapto('”')
+    unmap! ''
+endif
+
+set nospell
+
+set wildignore+=*.pyc
+
+au BufNewFile,BufRead *.rs set filetype=rust
+au BufNewFile,BufRead *.clj set filetype=clojure
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
+au BufNewFile,BufRead *.{txt} set spell
+au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} set tabstop=2 softtabstop=2 shiftwidth=2
+
+set guifont="Inconsolata-dz-Powerline"
+
+let g:Powerline_symbols = 'fancy'
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
