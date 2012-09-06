@@ -38,6 +38,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set list listchars=tab:\ \ ,trail:·
+set scrolloff=4
 
 set hlsearch
 set incsearch
@@ -162,4 +163,5 @@ let g:Powerline_symbols = 'fancy'
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+" filetype: vim
 
