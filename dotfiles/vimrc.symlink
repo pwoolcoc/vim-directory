@@ -48,8 +48,15 @@ set smartcase
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
+set iskeyword-=_
+
 set laststatus=2
 
+set nospell
+
+set backspace=indent,eol,start
+
+filetype plugin indent on
 
 map <Leader>t :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
@@ -65,14 +72,7 @@ function s:setupWrapping()
   set textwidth=72
 endfunction
 
-function s:setupPython()
-  set softtabstop=4
-  set tabstop=4
-  set shiftwidth=4
-  set textwidth=79
-endfunction
 
-au FileType make set noexpandtab
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupWrapping()
 
 au BufRead,BufNewFile *.json set ft=javascript
@@ -81,11 +81,9 @@ au BufRead,BufNewfile *.txt call s:setupWrapping()
 
 au BufRead,BufNewFile *.wsgi set ft=python
 
-au FileType python call s:setupPython()
+au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
-set backspace=indent,eol,start
-
-filetype plugin indent on
+au FileType make set noexpandtab
 
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -124,7 +122,7 @@ nnoremap <Leader>w :w!<CR>
 nnoremap <Leader><space> :noh<CR>
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>N :bp<CR>
 nnoremap <Leader>q :bd<CR>
 
 nnoremap [n :set number<CR>
@@ -145,7 +143,6 @@ if hasmapto('”')
     unmap! ''
 endif
 
-set nospell
 
 set wildignore+=*.pyc
 
@@ -153,8 +150,8 @@ au BufNewFile,BufRead *.rs set filetype=rust
 au BufNewFile,BufRead *.clj set filetype=clojure
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
-au BufNewFile,BufRead *.{txt} set spell
 au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn,tex} set spell
 
 set guifont="Inconsolata-dz-Powerline"
 
