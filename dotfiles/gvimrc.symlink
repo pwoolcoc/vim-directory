@@ -43,7 +43,6 @@ endif
 
 colorscheme desert
 
-au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn,tex} set spell
 
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
 
