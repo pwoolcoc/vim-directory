@@ -11,7 +11,7 @@ bind-key -r C-l select-window -t :+
 unbind C-b
 set -g prefix C-a
 
-set -g default-terminal "screen"
+set -g default-terminal "screen-256color"
 
 set -g base-index 1
 
