@@ -72,14 +72,18 @@ function s:setupWrapping()
   set textwidth=72
 endfunction
 
-
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupWrapping()
-
 au BufRead,BufNewFile *.json set ft=javascript
-
 au BufRead,BufNewfile *.txt call s:setupWrapping()
-
 au BufRead,BufNewFile *.wsgi set ft=python
+au BufRead,BufNewFile *.{rs,rc} set ft=rust
+au BufNewFile,BufRead *.clj set filetype=clojure
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
+au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} set tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn,tex} set spell
+
+au FileType rust map <F5> :!make test<CR>
 
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
@@ -146,12 +150,6 @@ endif
 
 set wildignore+=*.pyc
 
-au BufNewFile,BufRead *.rs set filetype=rust
-au BufNewFile,BufRead *.clj set filetype=clojure
-au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
-au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
-au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} set tabstop=2 softtabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn,tex} set spell
 
 set guifont="Inconsolata-dz-Powerline"
 
