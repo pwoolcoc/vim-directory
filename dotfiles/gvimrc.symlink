@@ -41,7 +41,8 @@ if has("gui_macvim")
   set guifont=Menlo:h14
 endif
 
-colorscheme desert
+set background=light
+colorscheme solarized
 
 
 cnoremap %% <C-R>=expand('%:h').'/'<CR>

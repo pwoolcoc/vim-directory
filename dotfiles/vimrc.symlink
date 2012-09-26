@@ -66,7 +66,7 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
+function! s:setupWrapping()
   set wrap
   set wrapmargin=2
   set textwidth=72
@@ -84,24 +84,21 @@ au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} set tabstop=2 softtabstop=2
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn,tex} set spell
 
 au FileType rust map <F5> :!make test<CR>
-
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
 au FileType make set noexpandtab
 
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
 cmap <C-K> <C-R>=expand("%:p:h") . "/" <CR>
+map <F12> :so ~/.vimrc<CR>
 
 nmap <C-Up> [e
 nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
+" let g:syntastic_enable_signs=1
+" let g:syntastic_quiet_warnings=1
 
 
 if has("mac")
@@ -128,7 +125,7 @@ nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>N :bp<CR>
 nnoremap <Leader>q :bd<CR>
-nneremap <F9> :CPPaste<CR>
+nnoremap <F9> :CPPaste<CR>
 
 nnoremap [n :set number<CR>
 nnoremap ]n :set relativenumber<CR>
@@ -152,6 +149,8 @@ endif
 set wildignore+=*.pyc
 
 
+set background=dark
+colorscheme solarized
 set guifont="Inconsolata-dz-Powerline"
 
 let g:Powerline_symbols = 'fancy'
@@ -159,5 +158,5 @@ let g:Powerline_symbols = 'fancy'
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-" filetype: vim
 
+" filetype: vim
