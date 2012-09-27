@@ -21,6 +21,8 @@ bind-key a send-prefix
 
 set -g status-position top
 
+set -g utf8 on
+
 set -g status-right "#[fg=black,bold][%r] #[fg=black,nobold]%A %Y-%m-%d \"#H\""
 set -g status-right-length 150
 set -g status-utf8 on

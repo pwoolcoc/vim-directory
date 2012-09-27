@@ -26,12 +26,15 @@ call pathogen#infect()
 
 set nocompatible
 
+filetype plugin indent on
+
 set number
 set ruler
 syntax on
 
 set encoding=utf-8
 
+set autoindent
 set nowrap
 set tabstop=4
 set shiftwidth=4
@@ -46,7 +49,7 @@ set ignorecase
 set smartcase
 
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,.virtualenv/*
 
 set iskeyword-=_
 
@@ -55,8 +58,6 @@ set laststatus=2
 set nospell
 
 set backspace=indent,eol,start
-
-filetype plugin indent on
 
 map <Leader>t :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
@@ -144,10 +145,6 @@ endif
 if hasmapto('”')
     unmap! ''
 endif
-
-
-set wildignore+=*.pyc
-
 
 set background=dark
 colorscheme solarized
