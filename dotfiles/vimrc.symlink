@@ -26,6 +26,10 @@ call pathogen#infect()
 
 set nocompatible
 
+if $SHELL =~ 'bin/fish'
+    set shell=/bin/sh
+endif
+
 filetype plugin indent on
 
 set number
@@ -50,8 +54,6 @@ set smartcase
 
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,.virtualenv/*
-
-set iskeyword-=_
 
 set laststatus=2
 
@@ -148,9 +150,13 @@ endif
 
 set background=dark
 colorscheme solarized
-set guifont="Inconsolata-dz-Powerline"
+"set guifont="Inconsolata-dz-Powerline"
+set guifont="SourceCodePro"
 
 let g:Powerline_symbols = 'fancy'
+let g:ctrlp_max_files = 0
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local

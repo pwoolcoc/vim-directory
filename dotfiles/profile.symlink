@@ -8,9 +8,10 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-PATH="/sbin:/usr/local/bin:$PATH"
+PATH="$PATH:/usr/sbin:/sbin"
 XDG_CONFIG_HOME="$HOME/.config"
 XDG_DATA_HOME="$HOME/.local/share"
+XDG_RUNTIME_DIR="/tmp/"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then

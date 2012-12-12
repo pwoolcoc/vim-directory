@@ -8,7 +8,7 @@ for file in ${FILES}; do
     NEW_FNAME=${BASENAME%.*}
 	NEW_PATH=${HOME}/${NEW_FNAME}
 	OLD_PATH=$PWD_/$file
-	$(ln -s $OLD_PATH $NEW_PATH)
+	$(ln -fs $OLD_PATH $NEW_PATH)
 done
 
 
