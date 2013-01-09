@@ -1,8 +1,14 @@
 [user]
 	name = Paul Woolcock
-	email = pwoolcoc@umflint.edu
-[push]
-    default = upstream
+	email = pwoolcock@barracuda.com
 
 [core]
 	editor = /usr/bin/vim
+
+[alias]
+    co = checkout
+    discard = checkout --
+    st = status -uno
+
+[color]
+	ui = auto
