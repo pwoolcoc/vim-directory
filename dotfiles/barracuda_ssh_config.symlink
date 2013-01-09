@@ -1,0 +1,81 @@
+Host svn
+    Hostname code.cudaops.com
+    User pwoolcock
+    IdentityFile /home/paul/.ssh/id_rsa_svn
+
+Host bcc
+    Hostname 10.66.8.162
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host muaddib
+    Hostname 10.66.8.162
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host spam
+    Hostname 10.66.8.160
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host tai-p0
+    Hostname 10.66.9.8
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host tai-p2
+    Hostname 10.66.9.4
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host tai-p6
+    Hostname 10.66.9.10
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host tai-p8
+    Hostname 10.66.9.208
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host tai-p15
+    Hostname 10.66.9.215
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host tai-p16
+    Hostname 10.66.9.216
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host bfw
+    Hostname 10.5.6.95
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host production
+    Hostname 10.128.42.26
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host cudaops
+    Hostname 10.128.42.22
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+    # 1O02iWTh
+
+Host qa-cudaops
+    Hostname 10.128.42.23
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+    # q4xcTnn0
+
+Host batou
+    Hostname 10.66.8.108
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa
+
+Host bvm3
+    Hostname 10.128.40.93
+    User root
+    IdentityFile /home/paul/.ssh/id_rsa

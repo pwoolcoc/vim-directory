@@ -1,0 +1,10 @@
+alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
+
+if [[ -f $HOME/.kshrc.ps1 ]] ; then
+    . $HOME/.kshrc.ps1
+    function cd {
+        command cd $*;
+        . $HOME/.kshrc.ps1
+    }
+fi
+

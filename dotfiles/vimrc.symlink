@@ -21,6 +21,14 @@
 "   "1P                     ; repeatable with ., and repeating actually
 "                           ; does "2P, "3P, etc
 "
+" Delete block between parens (or any generic block)
+"
+"   dib
+"
+" Delete block including parens
+"
+"   dab
+"
 
 call pathogen#infect()
 
@@ -61,8 +69,8 @@ set nospell
 
 set backspace=indent,eol,start
 
-map <Leader>t :!ctags --extra=+f -R *<CR><CR>
-map <C-\> :tnext<CR>
+let mapleader=","
+let g:mapleader=","
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -75,34 +83,53 @@ function! s:setupWrapping()
   set textwidth=72
 endfunction
 
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupWrapping()
+
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} call s:setupWrapping()
+au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn,txt} inoremap `` “
+au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn,txt} inoremap '' ”
 au BufRead,BufNewFile *.json set ft=javascript
-au BufRead,BufNewfile *.txt call s:setupWrapping()
 au BufRead,BufNewFile *.wsgi set ft=python
 au BufRead,BufNewFile *.{rs,rc} set ft=rust
 au BufNewFile,BufRead *.clj set filetype=clojure
-au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap `` “
-au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn} inoremap '' ”
 au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} set tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.{txt,md,markdown,mdown,mkd,mkdn,tex} set spell
 
-au FileType rust map <F5> :!make test<CR>
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au FileType make set noexpandtab
 
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <Leader>C :CtrlPClearCache<CR>
+nnoremap <Leader>N :bp<CR>
+nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>q :bd<CR>
+nnoremap <Leader>t :ConqueTermVSplit bash<CR>
+nnoremap <Leader>w :w!<CR>
+nnoremap <Leader><space> :noh<CR>
+
+nnoremap ; :
+nnoremap <F9> :CPPaste<CR>
+map <F5> :so ~/.vimrc<CR>
+
+nnoremap [n :set number<CR>
+nnoremap ]n :set relativenumber<CR>
+
 cmap <C-K> <C-R>=expand("%:p:h") . "/" <CR>
-map <F12> :so ~/.vimrc<CR>
 
 nmap <C-Up> [e
 nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
+nmap <Left> <<
+nmap <Right> >>
+vmap <Left> <gv
+vmap <Right> >gv
+
+inoremap jj <ESC>
+
 " let g:syntastic_enable_signs=1
 " let g:syntastic_quiet_warnings=1
-
 
 if has("mac")
   let g:gist_clip_command = 'pbcopy'
@@ -118,27 +145,6 @@ set directory=~/.vim/backup
 
 set showcmd
 
-let mapleader=","
-let g:mapleader=","
-
-nnoremap ; :
-nnoremap <Leader>w :w!<CR>
-nnoremap <Leader><space> :noh<CR>
-nnoremap <Leader>d :bd<CR>
-nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>N :bp<CR>
-nnoremap <Leader>q :bd<CR>
-nnoremap <F9> :CPPaste<CR>
-
-nnoremap [n :set number<CR>
-nnoremap ]n :set relativenumber<CR>
-
-nmap <Left> <<
-nmap <Right> >>
-vmap <Left> <gv
-vmap <Right> >gv
-
-inoremap jj <ESC>
 
 if hasmapto('“')
     unmap! ``

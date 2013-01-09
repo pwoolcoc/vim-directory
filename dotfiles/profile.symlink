@@ -8,6 +8,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+PS1="\${(hostname)}:\${PWD}
+\$ "
 PATH="$PATH:/usr/sbin:/sbin"
 XDG_CONFIG_HOME="$HOME/.config"
 XDG_DATA_HOME="$HOME/.local/share"
