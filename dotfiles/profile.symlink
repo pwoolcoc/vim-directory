@@ -47,7 +47,7 @@ if [ -f "/usr/bin/vim" ] ; then
 fi
 
 if [ -f "/usr/bin/gvim" ] ; then
-    EDITOR=/urs/bin/gvim
+    EDITOR=/usr/bin/gvim
 fi
 
 if [ -f "$HOME/.profile.local" ] ; then
